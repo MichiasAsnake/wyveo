@@ -1,8 +1,9 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { Variants } from 'framer-motion';
 import { Container } from '@/components/ui/container';
 import { LightbulbIcon, PencilRulerIcon, CodeIcon, RocketIcon } from 'lucide-react';
+import { MotionDiv } from '@/components/ui/motion';
 
 const steps = [
   {
@@ -27,7 +28,7 @@ const steps = [
   }
 ];
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -37,7 +38,7 @@ const containerVariants = {
   }
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, x: -20 },
   visible: {
     opacity: 1,
@@ -51,33 +52,18 @@ const itemVariants = {
 
 export function ProcessSection() {
   return (
-    <section className="relative py-20 bg-background overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/2 left-0 w-72 h-72 bg-primary/5 rounded-full -translate-x-1/2 -translate-y-1/2" />
-        <div className="absolute top-1/4 right-0 w-96 h-96 bg-primary/5 rounded-full translate-x-1/2 -translate-y-1/2" />
-      </div>
-
-      <Container className="relative">
-        <motion.div
+    <section className="py-24 bg-background">
+      <Container>
+        <MotionDiv
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="max-w-3xl mx-auto"
+          viewport={{ once: true }}
+          className="max-w-4xl mx-auto"
         >
-          <motion.div variants={itemVariants} className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Our Process
-            </h2>
-            <p className="text-lg text-muted-foreground">
-              A streamlined approach to bringing your vision to life
-            </p>
-          </motion.div>
-
           <div className="space-y-12">
             {steps.map((step, index) => (
-              <motion.div
+              <MotionDiv
                 key={step.title}
                 variants={itemVariants}
                 className="relative flex gap-8 items-start"
@@ -102,10 +88,10 @@ export function ProcessSection() {
                   <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
                   <p className="text-muted-foreground">{step.description}</p>
                 </div>
-              </motion.div>
+              </MotionDiv>
             ))}
           </div>
-        </motion.div>
+        </MotionDiv>
       </Container>
     </section>
   );

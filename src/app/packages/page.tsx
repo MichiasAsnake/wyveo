@@ -1,17 +1,20 @@
 'use client';
 
 import { useState } from 'react';
-import { motion, HTMLMotionProps } from 'framer-motion';
+import { Variants } from 'framer-motion';
 import { createCheckoutSession } from '@/lib/stripe';
-import { RocketIcon, TrendingUpIcon, StarIcon, ArrowRightIcon, SparklesIcon, BrainIcon, UsersIcon, HeartIcon, CheckCircle2Icon, TrophyIcon, BarChart3Icon } from 'lucide-react';
+import { RocketIcon, TrendingUpIcon, StarIcon, ArrowRightIcon, SparklesIcon, BrainIcon, UsersIcon, HeartIcon, CheckCircle2Icon, TrophyIcon, BarChart3Icon, LucideIcon } from 'lucide-react';
+import { Container } from '@/components/ui/container';
+import { MotionDiv, MotionA } from '@/components/ui/motion';
+import { cn } from '@/lib/utils';
 
-const fadeInUp = {
+const fadeInUp: Variants = {
   initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0 },
   exit: { opacity: 0, y: -20 }
 };
 
-const staggerContainer = {
+const staggerContainer: Variants = {
   initial: {},
   animate: {
     transition: {
@@ -21,7 +24,7 @@ const staggerContainer = {
   }
 };
 
-const scaleIn = {
+const scaleIn: Variants = {
   initial: { scale: 0.9, opacity: 0 },
   animate: { 
     scale: 1, 
@@ -33,64 +36,26 @@ const scaleIn = {
   }
 };
 
-const stats = [
+interface Stat {
+  icon: LucideIcon;
+  value: string;
+  label: string;
+}
+
+interface ProcessStep {
+  icon: LucideIcon;
+  title: string;
+  description: string;
+}
+
+const stats: Stat[] = [
   { icon: TrophyIcon, value: '150+', label: 'Successful Projects' },
   { icon: UsersIcon, value: '50+', label: 'Happy Clients' },
   { icon: BarChart3Icon, value: '200%', label: 'Average ROI' },
   { icon: CheckCircle2Icon, value: '98%', label: 'Client Satisfaction' }
 ];
 
-const packages = [
-  {
-    id: 'launch',
-    name: 'Launch',
-    price: 1000,
-    icon: RocketIcon,
-    description: "You're looking to start with brand building. We'll help you get started with a solid strategy.",
-    includes: [
-      'Strategy Guide',
-      'Research',
-      'Planning',
-      'Branding Suite',
-      'Brand Identity'
-    ]
-  },
-  {
-    id: 'grow',
-    name: 'Grow',
-    price: 1500,
-    icon: TrendingUpIcon,
-    description: "You've got your branding down, but you need that boost to get you where you want to be.",
-    includes: [
-      'Strategy Guide',
-      'Research',
-      'Planning',
-      'Audience Development',
-      'Campaign',
-      'Media Management'
-    ]
-  },
-  {
-    id: 'full-service',
-    name: 'Full Service',
-    price: 3000,
-    icon: StarIcon,
-    description: "Headwords is now your company's user-specified branding + design documents team. Want it? We've got you covered.",
-    includes: [
-      'Strategy Guide',
-      'Research',
-      'Planning',
-      'Branding Suite',
-      'Brand Identity',
-      'Planning Tools',
-      'Audience Development',
-      'Campaign',
-      'Media Management'
-    ]
-  }
-];
-
-const processSteps = [
+const processSteps: ProcessStep[] = [
   {
     icon: BrainIcon,
     title: "1. Choose & Purchase",
@@ -118,10 +83,95 @@ const processSteps = [
   }
 ];
 
+interface Package {
+  id: string;
+  name: string;
+  price: number;
+  icon: LucideIcon;
+  description: string;
+  includes: string[];
+  popularChoice?: boolean;
+}
+
+const packages: Package[] = [
+  {
+    id: 'launch',
+    name: 'Launch',
+    price: 1000,
+    icon: RocketIcon,
+    description: "You're looking to start with brand building. We'll help you get started with a solid strategy.",
+    includes: [
+      'Strategy Guide',
+      'Research',
+      'Planning',
+      'Branding Suite',
+      'Brand Identity'
+    ],
+    popularChoice: false
+  },
+  {
+    id: 'grow',
+    name: 'Grow',
+    price: 1500,
+    icon: TrendingUpIcon,
+    description: "You've got your branding down, but you need that boost to get you where you want to be.",
+    includes: [
+      'Strategy Guide',
+      'Research',
+      'Planning',
+      'Audience Development',
+      'Campaign',
+      'Media Management'
+    ],
+    popularChoice: true
+  },
+  {
+    id: 'full-service',
+    name: 'Full Service',
+    price: 3000,
+    icon: StarIcon,
+    description: "Headwords is now your company's user-specified branding + design documents team. Want it? We've got you covered.",
+    includes: [
+      'Strategy Guide',
+      'Research',
+      'Planning',
+      'Branding Suite',
+      'Brand Identity',
+      'Planning Tools',
+      'Audience Development',
+      'Campaign',
+      'Media Management'
+    ],
+    popularChoice: false
+  }
+];
+
+const containerVariants: Variants = {
+  initial: { opacity: 0 },
+  animate: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const itemVariants: Variants = {
+  initial: { opacity: 0, y: 20 },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: 'easeOut',
+    },
+  },
+};
+
 export default function PackagesPage() {
   const [loading, setLoading] = useState<string | null>(null);
 
-  const handlePurchase = async (pkg: typeof packages[0]) => {
+  const handlePurchase = async (pkg: Package) => {
     try {
       setLoading(pkg.id);
       await createCheckoutSession(pkg.id, pkg.name, pkg.price);
@@ -134,11 +184,10 @@ export default function PackagesPage() {
   };
 
   return (
-    <div className="relative bg-background min-h-screen">
-      <div className="container mx-auto px-6 py-24 max-w-6xl">
-        {/* Hero Section */}
-        <motion.section 
-          variants={fadeInUp}
+    <main>
+      <Container>
+        <MotionDiv
+          variants={containerVariants}
           initial="initial"
           animate="animate"
           className="text-center mb-32"
@@ -146,101 +195,25 @@ export default function PackagesPage() {
           <h1 className="text-6xl md:text-7xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/70">
             Choose one of<br />our packages.
           </h1>
-          <p className="text-2xl md:text-3xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Our services are packaged, prepped, and ready to go.
-            <span className="block mt-2">
-              We're like a catering service where every employee is a 5-star chef.
-            </span>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            Select the package that best fits your needs. Each package is designed to deliver exceptional value and results.
           </p>
-        </motion.section>
+        </MotionDiv>
 
-        {/* Stats Section */}
-        <motion.section 
-          variants={staggerContainer}
+        <MotionDiv
+          variants={containerVariants}
           initial="initial"
-          whileInView="animate"
-          viewport={{ once: true, margin: "-100px" }}
-          className="mb-32"
+          animate="animate"
+          className="grid gap-8 md:grid-cols-3 mb-32"
         >
-          <motion.div variants={fadeInUp} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">Proven Track Record</h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Numbers speak louder than words. Here's what we've achieved for our clients.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat) => (
-              <motion.div
-                key={stat.label}
-                variants={scaleIn}
-                className="text-center p-8 rounded-2xl bg-primary/5 hover:bg-primary/10 transition-colors"
-              >
-                <stat.icon className="w-10 h-10 text-primary mx-auto mb-4" />
-                <div className="text-4xl font-bold text-primary mb-2">{stat.value}</div>
-                <div className="text-sm text-muted-foreground">{stat.label}</div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.section>
-
-        {/* Process Section */}
-        <motion.section 
-          variants={staggerContainer}
-          initial="initial"
-          whileInView="animate"
-          viewport={{ once: true, margin: "-100px" }}
-          className="mb-32"
-        >
-          <motion.div variants={fadeInUp} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">Our Process</h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              We've refined our process to ensure every project is executed with precision and creativity.
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 gap-12">
-            {processSteps.map((step, index) => (
-              <motion.div
-                key={step.title}
-                variants={fadeInUp}
-                className="relative flex gap-6 items-start p-8 rounded-2xl bg-primary/5 hover:bg-primary/10 transition-colors"
-              >
-                <div className="bg-primary/10 p-4 rounded-full">
-                  <step.icon className="w-8 h-8 text-primary" />
-                </div>
-                <div>
-                  <h3 className="text-2xl font-bold mb-2">{step.title}</h3>
-                  <p className="text-lg text-muted-foreground">{step.description}</p>
-                </div>
-                <div className="absolute -top-4 -right-4 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-2xl font-bold text-primary">
-                  {index + 1}
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.section>
-
-        {/* Packages Section */}
-        <motion.section 
-          variants={staggerContainer}
-          initial="initial"
-          whileInView="animate"
-          viewport={{ once: true, margin: "-100px" }}
-          className="space-y-12 mb-32"
-        >
-          <motion.div variants={fadeInUp} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">Choose Your Package</h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Select the package that best fits your needs and let's start creating something amazing together.
-            </p>
-          </motion.div>
-
           {packages.map((pkg) => (
-            <motion.div
+            <MotionDiv
               key={pkg.id}
-              variants={fadeInUp}
-              className="relative border rounded-xl p-10 hover:shadow-lg transition-all hover:-translate-y-1 bg-background"
+              variants={itemVariants}
+              className={cn(
+                'relative rounded-2xl p-8 bg-card shadow-sm transition-shadow hover:shadow-md',
+                pkg.popularChoice && 'border-2 border-primary'
+              )}
             >
               {/* Price Tag */}
               <div className="absolute -top-4 -right-4 bg-primary text-primary-foreground rounded-full p-5 shadow-lg">
@@ -283,15 +256,15 @@ export default function PackagesPage() {
                   </button>
                 </div>
               </div>
-            </motion.div>
+            </MotionDiv>
           ))}
-        </motion.section>
+        </MotionDiv>
 
         {/* CTA Section */}
-        <motion.section 
+        <MotionDiv
           variants={scaleIn}
           initial="initial"
-          whileInView="animate"
+          animate="animate"
           viewport={{ once: true }}
           className="text-center mt-32 bg-primary/5 rounded-3xl p-16 hover:bg-primary/10 transition-colors"
         >
@@ -299,7 +272,7 @@ export default function PackagesPage() {
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
             Don't see a package that fits your needs? Let's create something custom together.
           </p>
-          <motion.a 
+          <MotionA 
             href="https://calendly.com/mickyasnake/30min"
             target="_blank"
             rel="noopener noreferrer"
@@ -309,9 +282,9 @@ export default function PackagesPage() {
           >
             Schedule a Call
             <ArrowRightIcon className="w-5 h-5" />
-          </motion.a>
-        </motion.section>
-      </div>
-    </div>
+          </MotionA>
+        </MotionDiv>
+      </Container>
+    </main>
   );
 } 

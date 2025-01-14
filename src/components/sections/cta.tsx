@@ -1,12 +1,13 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { Variants } from 'framer-motion';
 import Link from 'next/link';
 import { Container } from '@/components/ui/container';
 import { ArrowRightIcon } from 'lucide-react';
 import { Spotlight } from '@/components/ui/spotlight';
+import { MotionDiv, MotionH2, MotionP } from '@/components/ui/motion';
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -16,7 +17,7 @@ const containerVariants = {
   }
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
@@ -28,7 +29,7 @@ const itemVariants = {
   }
 };
 
-const buttonVariants = {
+const buttonVariants: Variants = {
   hidden: { opacity: 0, scale: 0.8 },
   visible: {
     opacity: 1,
@@ -58,32 +59,32 @@ export function CTASection() {
       />
       
       <Container>
-        <motion.div
+        <MotionDiv
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           className="relative z-10 max-w-3xl mx-auto text-center"
         >
-          <motion.h2
+          <MotionH2
             variants={itemVariants}
             className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent"
           >
             Ready to Transform Your Digital Presence?
-          </motion.h2>
+          </MotionH2>
           
-          <motion.p
+          <MotionP
             variants={itemVariants}
             className="text-xl text-muted-foreground mb-12"
           >
             Let's create something amazing together. Our team is ready to bring your vision to life with cutting-edge design and technology.
-          </motion.p>
+          </MotionP>
 
-          <motion.div
+          <MotionDiv
             variants={containerVariants}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <motion.div
+            <MotionDiv
               variants={buttonVariants}
               whileHover="hover"
               whileTap="tap"
@@ -95,9 +96,9 @@ export function CTASection() {
                 View Our Packages
                 <ArrowRightIcon className="w-5 h-5" />
               </Link>
-            </motion.div>
+            </MotionDiv>
 
-            <motion.div
+            <MotionDiv
               variants={buttonVariants}
               whileHover="hover"
               whileTap="tap"
@@ -109,9 +110,9 @@ export function CTASection() {
                 Contact Us
                 <ArrowRightIcon className="w-5 h-5" />
               </Link>
-            </motion.div>
-          </motion.div>
-        </motion.div>
+            </MotionDiv>
+          </MotionDiv>
+        </MotionDiv>
       </Container>
     </section>
   );
