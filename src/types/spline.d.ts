@@ -1,3 +1,3 @@
 declare module '@splinetool/react-spline' {
-  export default function Spline({ scene }: { scene: string }): JSX.Element;
+  export default function Spline({ scene, className }: { scene: string; className?: string }): JSX.Element;
 } 

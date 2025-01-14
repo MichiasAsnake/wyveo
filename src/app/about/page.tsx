@@ -3,10 +3,16 @@
 import Image from 'next/image';
 import { AnimatedSection } from '@/components/ui/animated-section';
 import { Container } from '@/components/ui/container';
-import { motion } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 import { SplineScene } from '@/components/ui/spline';
 
-const teamMembers = [
+interface TeamMember {
+  name: string;
+  role: string;
+  bio: string;
+}
+
+const teamMembers: TeamMember[] = [
   {
     name: 'Michias Asnake',
     role: 'Founder & CEO',
@@ -29,7 +35,7 @@ const teamMembers = [
   },
 ];
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -39,7 +45,7 @@ const containerVariants = {
   },
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
@@ -146,7 +152,7 @@ export default function AboutPage() {
                 <motion.div
                   key={member.name}
                   variants={itemVariants}
-                  className="rounded-lg bg-card p-6 shadow-sm"
+                  className="rounded-lg border-2 bg-card p-6 shadow-sm"
                 >
                   <h3 className="text-xl font-bold">{member.name}</h3>
                   <p className="mt-1 text-sm text-primary">{member.role}</p>

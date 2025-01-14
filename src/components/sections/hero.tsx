@@ -4,12 +4,12 @@ import Link from 'next/link';
 import { SplineScene } from '@/components/ui/spline';
 import { Spotlight } from '@/components/ui/spotlight';
 import { Container } from '@/components/ui/container';
-import { motion } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 import { ButtonCta, ShinyLink } from '@/components/ui/button-shiny';
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -20,7 +20,7 @@ const containerVariants = {
   },
 };
 
-const titleVariants = {
+const titleVariants: Variants = {
   hidden: { opacity: 0, y: 30 },
   visible: {
     opacity: 1,
@@ -33,7 +33,7 @@ const titleVariants = {
   }
 };
 
-const textVariants = {
+const textVariants: Variants = {
   hidden: { opacity: 0, x: -20 },
   visible: {
     opacity: 1,
@@ -46,7 +46,7 @@ const textVariants = {
   }
 };
 
-const buttonVariants = {
+const buttonVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
@@ -79,7 +79,7 @@ export function HeroSection() {
               className="bg-gradient-to-b from-foreground to-muted-foreground bg-clip-text text-transparent"
             >
               Transform Your Online Presence with{' '}
-              <span className="text-primary">Expert Web Design</span>
+              <span className="text-[#818cf8]">Expert Web Design</span>
             </motion.h1>
 
             <motion.p
@@ -112,7 +112,7 @@ export function HeroSection() {
               >
                 <Link
                   href="/work"
-                  className="inline-flex h-12 items-center justify-center rounded-lg border border-input bg-background px-8 text-sm font-medium ring-offset-background transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                  className="inline-flex h-12 items-center justify-center rounded-lg border border-neutral-400 bg-background px-8 text-sm font-medium text-neutral-600 transition-colors hover:bg-neutral-100 dark:text-neutral-300 dark:border-neutral-600 dark:hover:bg-neutral-800"
                 >
                   See Our Work
                 </Link>

@@ -1,10 +1,16 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 import { Container } from '@/components/ui/container';
-import { CodeIcon, PaintbrushIcon, SparklesIcon, GaugeIcon, ShieldCheckIcon, HeartHandshakeIcon } from 'lucide-react';
+import { CodeIcon, PaintbrushIcon, SparklesIcon, GaugeIcon, ShieldCheckIcon, HeartHandshakeIcon, type LucideIcon } from 'lucide-react';
 
-const features = [
+interface Feature {
+  icon: LucideIcon;
+  title: string;
+  description: string;
+}
+
+const features: Feature[] = [
   {
     icon: PaintbrushIcon,
     title: 'Beautiful Design',
@@ -37,7 +43,7 @@ const features = [
   }
 ];
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -48,7 +54,7 @@ const containerVariants = {
   }
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,

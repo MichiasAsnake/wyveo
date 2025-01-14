@@ -192,7 +192,7 @@ export default function PackagesPage() {
           animate="animate"
           className="text-center mb-28 mt-28"
         >
-          <h1 className="text-6xl md:text-7xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/70">
+          <h1 className="text-6xl md:text-7xl font-bold mb-8 bg-gradient-to-b from-foreground to-muted-foreground bg-clip-text text-transparent">
             Choose one of<br />our packages.
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -212,18 +212,18 @@ export default function PackagesPage() {
               variants={itemVariants}
               className={cn(
                 'relative rounded-2xl p-8 backdrop-blur-sm shadow-sm transition-shadow hover:shadow-md flex flex-col border border-white/40',
-                pkg.popularChoice && 'ring-0 ring-offset-2 ring-purple-500'
+                pkg.popularChoice && 'ring-1 ring-[#818cf8] ring-offset-2'
               )}
             >
               {/* Price Tag */}
-              <div className="absolute -top-4 -right-4 bg-primary text-primary-foreground rounded-full p-5 shadow-lg">
+              <div className="absolute -top-4 -right-4 bg-neutral-950 text-white border-2 rounded-full p-5 shadow-lg">
                 <span className="text-xl font-bold">${(pkg.price / 1000)}k</span>
               </div>
 
               {/* Icon and Title */}
               <div className="mb-8">
-                <div className="bg-primary/10 p-8 rounded-full w-fit mb-6">
-                  <pkg.icon className="w-14 h-14 text-primary" />
+                <div className="bg-neutral-800/10 p-8 rounded-full w-fit mb-6">
+                  <pkg.icon className="w-12 h-12 text-purple-300" />
                 </div>
                 <h2 className="text-3xl font-bold leading-tight">{pkg.name}</h2>
               </div>
@@ -234,7 +234,7 @@ export default function PackagesPage() {
                 <div className="grid sm:grid-cols-2 gap-4">
                   {pkg.includes.map((item) => (
                     <div key={item} className="flex items-center">
-                      <div className="w-2 h-2 rounded-full bg-primary mr-3 flex-shrink-0" />
+                      <div className="w-2 h-1 rounded-full bg-neutral-400 mr-3 flex-shrink-0" />
                       <span className="text-base">{item}</span>
                     </div>
                   ))}
@@ -249,7 +249,7 @@ export default function PackagesPage() {
                   label={loading === pkg.id ? 'Processing...' : 'Buy Now'}
                   className="w-full"
                 />
-                <button className="w-full border text-primary hover:bg-primary/10 px-8 py-4 rounded-lg font-medium transition-colors text-lg">
+                <button className="w-full border border-neutral-400 text-neutral-500 hover:bg-neutral-100 px-8 py-4 rounded-lg font-medium transition-colors text-lg dark:text-neutral-200 dark:border-neutral-600 dark:hover:bg-neutral-800">
                   Learn More
                 </button>
               </div>
@@ -263,7 +263,7 @@ export default function PackagesPage() {
           initial="initial"
           animate="animate"
           viewport={{ once: true }}
-          className="text-center mt-32 mb-32 bg-primary/5 rounded-3xl p-16 hover:bg-primary/10 transition-colors"
+          className="text-center mt-32 mb-32 border-2 bg-slate-400/10 dark:bg-neutral-900 rounded-xl p-16 hover:bg-neutral-200 dark:hover:bg-neutral-800 transition-colors"
         >
           <h2 className="text-4xl font-bold mb-6">Ready to Transform Your Brand?</h2>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">

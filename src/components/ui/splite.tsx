@@ -17,10 +17,11 @@ export function SplineScene({ scene, className }: SplineSceneProps) {
         </div>
       }
     >
-      <Spline
-        scene={scene}
-        className={className}
-      />
+      <div className={className}>
+        <Spline
+          scene={scene}
+        />
+      </div>
     </Suspense>
   )
 }

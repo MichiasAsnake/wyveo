@@ -3,11 +3,11 @@
 import { ArrowRight } from 'lucide-react';
 import { AnimatedSection } from '@/components/ui/animated-section';
 import { Container } from '@/components/ui/container';
-import { motion } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 import { ProjectGrid } from '@/components/sections/project-grid';
 import { ShinyLink } from '@/components/ui/button-shiny';
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -17,7 +17,7 @@ const containerVariants = {
   },
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,

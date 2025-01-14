@@ -6,7 +6,23 @@ import Link from 'next/link';
 import { AnimatedSection } from '@/components/ui/animated-section';
 import { Container } from '@/components/ui/container';
 import { motion } from 'framer-motion';
-import { type Project } from '@/types';
+
+interface Project {
+  id: string;
+  title: string;
+  description: string;
+  imageUrl: string;
+  category: string;
+  tags: string[];
+  completionDate: string;
+  link: string;
+  status: 'completed' | 'coming-soon';
+}
+
+interface ProjectCardProps {
+  project: Project;
+  index: number;
+}
 
 const projects: Project[] = [
   {
@@ -48,7 +64,7 @@ const projects: Project[] = [
 
 const categories = Array.from(new Set(projects.map((project) => project.category)));
 
-function ProjectCard({ project, index }: { project: Project; index: number }) {
+function ProjectCard({ project, index }: ProjectCardProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -136,7 +152,7 @@ export function ProjectGrid({
               onClick={() => setSelectedCategory(null)}
               className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
                 selectedCategory === null
-                  ? 'bg-primary text-primary-foreground'
+                  ? 'bg-neutral-800 text-white dark:bg-neutral-200 dark:text-neutral-900'
                   : 'bg-accent text-accent-foreground hover:bg-accent/80'
               }`}
             >

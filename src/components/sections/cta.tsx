@@ -69,7 +69,7 @@ export function CTASection() {
         >
           <MotionH2
             variants={itemVariants}
-            className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent"
+            className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-b from-foreground to-muted-foreground bg-clip-text text-transparent"
           >
             Ready to Transform Your Digital Presence?
           </MotionH2>
@@ -105,7 +105,7 @@ export function CTASection() {
             >
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 border border-primary text-primary px-8 py-2 rounded-lg text-lg font-medium hover:bg-primary/10 transition-colors"
+                className="inline-flex items-center gap-2 border border-neutral-400 text-neutral-600 px-8 py-2 rounded-lg text-lg font-medium hover:bg-neutral-100 transition-colors dark:text-neutral-300 dark:border-neutral-600 dark:hover:bg-neutral-800"
               >
                 Contact Us
                 <ArrowRightIcon className="w-5 h-5" />

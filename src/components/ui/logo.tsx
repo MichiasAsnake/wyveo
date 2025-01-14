@@ -11,7 +11,7 @@ export function Logo() {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
       >
-        <span className="bg-gradient-to-r from-primary via-blue-500 to-primary bg-[200%_auto] animate-gradient bg-clip-text text-transparent">
+        <span className="bg-gradient-to-r from-[#818cf8] via-[#B873F8] to-[#818cf8] bg-[200%_auto] animate-gradient bg-clip-text text-transparent">
           Wyveo
         </span>
       </motion.span>

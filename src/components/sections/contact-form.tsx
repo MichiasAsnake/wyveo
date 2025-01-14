@@ -109,7 +109,7 @@ export function ContactForm({
                   {...register('name')}
                   type="text"
                   id="name"
-                  className="mt-1 block w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="mt-1 block w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-neutral-400"
                   placeholder="John Doe"
                 />
                 {errors.name && (
@@ -130,7 +130,7 @@ export function ContactForm({
                   {...register('email')}
                   type="email"
                   id="email"
-                  className="mt-1 block w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="mt-1 block w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-neutral-400"
                   placeholder="john@example.com"
                 />
                 {errors.email && (
@@ -151,7 +151,7 @@ export function ContactForm({
                   {...register('company')}
                   type="text"
                   id="company"
-                  className="mt-1 block w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="mt-1 block w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-neutral-400"
                   placeholder="Your Company"
                 />
               </div>
@@ -166,7 +166,7 @@ export function ContactForm({
                 <select
                   {...register('budget')}
                   id="budget"
-                  className="mt-1 block w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="mt-1 block w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus:outline-none focus:ring-2 focus:ring-neutral-400"
                 >
                   <option value="">Select a budget range</option>
                   <option value="$2,500 - $5,000">$2,500 - $5,000</option>
@@ -190,7 +190,7 @@ export function ContactForm({
                 <select
                   {...register('timeline')}
                   id="timeline"
-                  className="mt-1 block w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="mt-1 block w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus:outline-none focus:ring-2 focus:ring-neutral-400"
                 >
                   <option value="">Select a timeline</option>
                   <option value="1-2 months">1-2 months</option>
@@ -216,7 +216,7 @@ export function ContactForm({
                   {...register('projectDetails')}
                   id="projectDetails"
                   rows={4}
-                  className="mt-1 block w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="mt-1 block w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-neutral-400"
                   placeholder="Tell us about your project..."
                 />
                 {errors.projectDetails && (
@@ -233,7 +233,7 @@ export function ContactForm({
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="inline-flex w-full items-center justify-center rounded-md bg-primary px-4 py-2 font-medium text-primary-foreground transition-colors hover:bg-primary/90 disabled:pointer-events-none disabled:opacity-50"
+                className="inline-flex w-full items-center justify-center rounded-md bg-neutral-800 px-4 py-2 font-medium text-white transition-colors hover:bg-neutral-700 disabled:pointer-events-none disabled:opacity-50 dark:bg-neutral-200 dark:text-neutral-900 dark:hover:bg-neutral-300"
               >
                 {isSubmitting ? (
                   <>
