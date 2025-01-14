@@ -4,7 +4,17 @@ import Image from 'next/image';
 import { AnimatedSection } from '@/components/ui/animated-section';
 import { Container } from '@/components/ui/container';
 import { motion } from 'framer-motion';
-import { SplineScene } from '@/components/ui/spline';
+import dynamic from 'next/dynamic';
+import { Suspense } from 'react';
+
+const SplineScene = dynamic(() => import('@/components/ui/spline'), {
+  loading: () => (
+    <div className="w-full h-full flex items-center justify-center">
+      <div className="animate-pulse bg-primary/10 rounded-full w-32 h-32" />
+    </div>
+  ),
+  ssr: false
+});
 
 const teamMembers = [
   {
@@ -13,19 +23,19 @@ const teamMembers = [
     bio: 'With over 4 years of experience in web development and design, Micky leads our team with passion and innovation.',
   },
   {
-    name: 'Sarah Johnson',
+    name: 'Olivia Martinez',
     role: 'Lead Designer',
-    bio: 'Sarah brings creativity and user-centered design principles to every project, ensuring beautiful and functional results.',
+    bio: 'Olivia combines artistic vision with UX expertise to create designs that captivate and convert, drawing from her background in digital art.',
   },
   {
-    name: 'Michael Chen',
+    name: 'David Park',
     role: 'Technical Director',
-    bio: 'Michael oversees all technical aspects of our projects, specializing in modern web technologies and performance optimization.',
+    bio: 'David brings 8+ years of full-stack expertise, leading our development team in creating scalable, cutting-edge solutions.',
   },
   {
-    name: 'Emma Wilson',
+    name: 'Sophia Rahman',
     role: 'Project Manager',
-    bio: 'Emma ensures smooth project delivery and excellent client communication throughout the development process.',
+    bio: 'With a background in agile methodologies, Sophia ensures seamless project execution and exceptional client satisfaction.',
   },
 ];
 
@@ -101,10 +111,17 @@ export default function AboutPage() {
                 className="relative h-[600px] hidden lg:block"
               >
                 <div className="absolute inset-0 overflow-hidden">
-                  <SplineScene 
-                    scene="https://prod.spline.design/QGcM3hSyFNjeLUJv/scene.splinecode"
-                    className="w-full -translate-y-40 -translate-x-36"
-                  />
+                  <Suspense fallback={
+                    <div className="w-full h-full flex items-center justify-center">
+                      <div className="animate-pulse bg-primary/10 rounded-full w-32 h-32" />
+                    </div>
+                  }>
+                    <SplineScene 
+                      scene="https://prod.spline.design/QGcM3hSyFNjeLUJv/scene.splinecode"
+                      className="w-full -translate-y-40 -translate-x-36"
+                      priority={true}
+                    />
+                  </Suspense>
                 </div>
               </motion.div>
             </div>

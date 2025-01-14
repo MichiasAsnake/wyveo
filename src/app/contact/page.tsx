@@ -81,7 +81,7 @@ function ContactInfo() {
 
 export default function ContactPage() {
   return (
-    <div className="flex flex-col gap-20 py-20 md:gap-32 md:py-32">
+    <div className="flex flex-col gap-20 py-20 md:gap-32 md:py-16">
       {/* Hero Section */}
       <AnimatedSection>
         <Container>

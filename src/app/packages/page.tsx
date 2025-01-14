@@ -184,12 +184,12 @@ export default function PackagesPage() {
 
   return (
     <main>
-      <Container className="pt-20 md:pt-32">
+      <Container>
         <motion.div
           variants={containerVariants}
           initial="initial"
           animate="animate"
-          className="text-center mb-32"
+          className="text-center mb-28 mt-28"
         >
           <h1 className="text-6xl md:text-7xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/70">
             Choose one of<br />our packages.
@@ -210,7 +210,7 @@ export default function PackagesPage() {
               key={pkg.id}
               variants={itemVariants}
               className={cn(
-                'relative rounded-2xl p-8 bg-card shadow-sm transition-shadow hover:shadow-md flex flex-col',
+                'relative rounded-2xl p-8 bg-white/10 backdrop-blur-sm shadow-sm transition-shadow hover:shadow-md flex flex-col border border-white/40',
                 pkg.popularChoice && 'border-2 border-primary'
               )}
             >
