@@ -83,7 +83,7 @@ export default function AboutPage() {
                 <div className="mt-8 flex flex-col gap-4 text-muted-foreground">
                   <div className="flex items-center gap-4">
                     <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                      <span className="text-lg font-bold">10+</span>
+                      <span className="text-lg font-bold">2+</span>
                     </div>
                     <div>
                       <h3 className="font-medium text-foreground">Years of Experience</h3>
@@ -92,7 +92,7 @@ export default function AboutPage() {
                   </div>
                   <div className="flex items-center gap-4">
                     <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                      <span className="text-lg font-bold">200+</span>
+                      <span className="text-lg font-bold">10+</span>
                     </div>
                     <div>
                       <h3 className="font-medium text-foreground">Projects Completed</h3>
