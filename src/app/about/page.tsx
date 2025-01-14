@@ -1,12 +1,10 @@
 'use client';
+
 import Image from 'next/image';
 import { AnimatedSection } from '@/components/ui/animated-section';
 import { Container } from '@/components/ui/container';
 import { motion } from 'framer-motion';
 import { SplineScene } from '@/components/ui/spline';
-import { motion } from 'framer-motion';
-import { type WithClassName } from '@/types/motion';
-import { MotionContainer } from '@/components/ui/motion-container';
 
 const teamMembers = [
   {
@@ -59,21 +57,16 @@ const itemVariants = {
 
 export default function AboutPage() {
   return (
-    <div className="flex flex-col gap-20 md:gap-32 md">
+    <div className="flex flex-col gap-20 py-20 md:gap-32 md:py-32">
       {/* Hero Section */}
       <AnimatedSection>
         <Container>
-<<<<<<< HEAD
           <motion.div
-=======
-          <MotionContainer
->>>>>>> 918b12d1436ab9cb8a7f238b0b59581b9352b015
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="mx-auto max-w-7xl px-6 sm: lg:px-8"
+            className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8"
           >
-<<<<<<< HEAD
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <motion.div variants={containerVariants}>
                 <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
@@ -94,25 +87,6 @@ export default function AboutPage() {
                       <h3 className="font-medium text-foreground">Years of Experience</h3>
                       <p className="text-sm">Delivering exceptional web solutions</p>
                     </div>
-=======
-            <MotionContainer
-              variants={itemVariants}
-              className="flex-1 max-w-xl"
-            >
-              <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
-                We Create Digital Excellence
-              </h1>
-              <p className="mt-6 text-lg text-muted-foreground">
-                At Wyveo, we're passionate about creating exceptional digital
-                experiences that help businesses thrive in the modern world. Our
-                team of experts combines creativity, technical expertise, and
-                strategic thinking to deliver outstanding results.
-              </p>
-              <div className="mt-8 flex flex-col gap-4 text-muted-foreground">
-                <div className="flex items-center gap-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                    <span className="text-lg font-bold">10+</span>
->>>>>>> 918b12d1436ab9cb8a7f238b0b59581b9352b015
                   </div>
                   <div className="flex items-center gap-4">
                     <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
@@ -136,55 +110,26 @@ export default function AboutPage() {
                     className="w-full -translate-y-48 -translate-x-36"
                   />
                 </div>
-<<<<<<< HEAD
               </motion.div>
             </div>
           </motion.div>
-=======
-              </div>
-            </MotionContainer>
-            <MotionContainer
-              variants={itemVariants}
-              className="relative flex-1 h-[600px] hidden lg:block"
-            >
-              <div className="absolute inset-0 overflow-hidden">
-                <SplineScene 
-                  scene="https://prod.spline.design/QGcM3hSyFNjeLUJv/scene.splinecode"
-                  className="w-full h-[102%] -translate-y-52 -translate-x-40"
-                />
-              </div>
-            </MotionContainer>
-          </MotionContainer>
->>>>>>> 918b12d1436ab9cb8a7f238b0b59581b9352b015
         </Container>
       </AnimatedSection>
 
       {/* Team Section */}
       <AnimatedSection className="bg-muted/50">
         <Container>
-<<<<<<< HEAD
           <motion.div
-=======
-          <MotionContainer
->>>>>>> 918b12d1436ab9cb8a7f238b0b59581b9352b015
             variants={containerVariants}
             initial="hidden"
             animate="visible"
             className="py-24 sm:py-32"
           >
-<<<<<<< HEAD
             <div className="mx-auto max-w-2xl text-center">
               <motion.h2 
                 variants={itemVariants}
                 className="text-3xl font-bold tracking-tight sm:text-4xl"
               >
-=======
-            <MotionContainer
-              variants={itemVariants}
-              className="max-w-2xl text-center"
-            >
-              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
->>>>>>> 918b12d1436ab9cb8a7f238b0b59581b9352b015
                 Meet Our Team
               </motion.h2>
               <motion.p 
@@ -194,21 +139,12 @@ export default function AboutPage() {
                 Our talented team of experts is dedicated to bringing your vision
                 to life with creativity, technical excellence, and attention to
                 detail.
-<<<<<<< HEAD
               </motion.p>
             </div>
 
             <motion.div
               variants={containerVariants}
               className="mx-auto mt-16 grid max-w-7xl gap-8 sm:grid-cols-2 lg:grid-cols-4"
-=======
-              </p>
-            </MotionContainer>
-
-            <MotionContainer
-              variants={itemVariants}
-              className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-4"
->>>>>>> 918b12d1436ab9cb8a7f238b0b59581b9352b015
             >
               {teamMembers.map((member) => (
                 <motion.div
@@ -234,13 +170,8 @@ export default function AboutPage() {
                   </div>
                 </motion.div>
               ))}
-<<<<<<< HEAD
             </motion.div>
           </motion.div>
-=======
-            </MotionContainer>
-          </MotionContainer>
->>>>>>> 918b12d1436ab9cb8a7f238b0b59581b9352b015
         </Container>
       </AnimatedSection>
     </div>
