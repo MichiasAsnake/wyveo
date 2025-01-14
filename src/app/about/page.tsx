@@ -10,25 +10,21 @@ const teamMembers = [
   {
     name: 'Michias Asnake',
     role: 'Founder & CEO',
-    image: '/images/team/headshot1.png',
     bio: 'With over 4 years of experience in web development and design, Micky leads our team with passion and innovation.',
   },
   {
     name: 'Sarah Johnson',
     role: 'Lead Designer',
-    image: '/images/team/sarah.jpg',
     bio: 'Sarah brings creativity and user-centered design principles to every project, ensuring beautiful and functional results.',
   },
   {
     name: 'Michael Chen',
     role: 'Technical Director',
-    image: '/images/team/michael.jpg',
     bio: 'Michael oversees all technical aspects of our projects, specializing in modern web technologies and performance optimization.',
   },
   {
     name: 'Emma Wilson',
     role: 'Project Manager',
-    image: '/images/team/emma.jpg',
     bio: 'Emma ensures smooth project delivery and excellent client communication throughout the development process.',
   },
 ];
@@ -57,7 +53,7 @@ const itemVariants = {
 
 export default function AboutPage() {
   return (
-    <div className="flex flex-col gap-20 py-20 md:gap-32 md:py-32">
+    <div className="flex flex-col gap-20 py-12 md:gap-32 md:py-16">
       {/* Hero Section */}
       <AnimatedSection>
         <Container>
@@ -65,7 +61,7 @@ export default function AboutPage() {
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8"
+            className="mx-auto max-w-7xl px-6 py-12 sm:py-16 lg:px-8"
           >
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <motion.div variants={containerVariants}>
@@ -102,12 +98,12 @@ export default function AboutPage() {
 
               <motion.div
                 variants={itemVariants}
-                className="relative h-[800px] hidden lg:block"
+                className="relative h-[600px] hidden lg:block"
               >
                 <div className="absolute inset-0 overflow-hidden">
                   <SplineScene 
                     scene="https://prod.spline.design/QGcM3hSyFNjeLUJv/scene.splinecode"
-                    className="w-full -translate-y-48 -translate-x-36"
+                    className="w-full -translate-y-40 -translate-x-36"
                   />
                 </div>
               </motion.div>
@@ -144,30 +140,19 @@ export default function AboutPage() {
 
             <motion.div
               variants={containerVariants}
-              className="mx-auto mt-16 grid max-w-7xl gap-8 sm:grid-cols-2 lg:grid-cols-4"
+              className="mx-auto mt-16 grid max-w-4xl gap-6 sm:grid-cols-2"
             >
               {teamMembers.map((member) => (
                 <motion.div
                   key={member.name}
                   variants={itemVariants}
-                  className="group relative overflow-hidden rounded-lg bg-card"
+                  className="rounded-lg bg-card p-6 shadow-sm"
                 >
-                  <div className="aspect-square overflow-hidden">
-                    <Image
-                      src={member.image}
-                      alt={member.name}
-                      width={400}
-                      height={400}
-                      className="object-cover transition-transform duration-300 group-hover:scale-105"
-                    />
-                  </div>
-                  <div className="p-6">
-                    <h3 className="font-bold">{member.name}</h3>
-                    <p className="text-sm text-primary">{member.role}</p>
-                    <p className="mt-2 text-sm text-muted-foreground">
-                      {member.bio}
-                    </p>
-                  </div>
+                  <h3 className="text-xl font-bold">{member.name}</h3>
+                  <p className="mt-1 text-sm text-primary">{member.role}</p>
+                  <p className="mt-4 text-muted-foreground">
+                    {member.bio}
+                  </p>
                 </motion.div>
               ))}
             </motion.div>

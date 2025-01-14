@@ -184,7 +184,7 @@ export default function PackagesPage() {
 
   return (
     <main>
-      <Container>
+      <Container className="pt-20 md:pt-32">
         <motion.div
           variants={containerVariants}
           initial="initial"
@@ -210,7 +210,7 @@ export default function PackagesPage() {
               key={pkg.id}
               variants={itemVariants}
               className={cn(
-                'relative rounded-2xl p-8 bg-card shadow-sm transition-shadow hover:shadow-md',
+                'relative rounded-2xl p-8 bg-card shadow-sm transition-shadow hover:shadow-md flex flex-col',
                 pkg.popularChoice && 'border-2 border-primary'
               )}
             >
@@ -219,41 +219,39 @@ export default function PackagesPage() {
                 <span className="text-xl font-bold">${(pkg.price / 1000)}k</span>
               </div>
 
-              <div className="grid md:grid-cols-[1.2fr_2fr_1fr] gap-12 items-start">
-                {/* Icon and Title */}
-                <div className="space-y-6">
-                  <div className="bg-primary/10 p-8 rounded-full w-fit">
-                    <pkg.icon className="w-14 h-14 text-primary" />
-                  </div>
-                  <h2 className="text-3xl font-bold leading-tight">{pkg.name}</h2>
+              {/* Icon and Title */}
+              <div className="mb-8">
+                <div className="bg-primary/10 p-8 rounded-full w-fit mb-6">
+                  <pkg.icon className="w-14 h-14 text-primary" />
                 </div>
+                <h2 className="text-3xl font-bold leading-tight">{pkg.name}</h2>
+              </div>
 
-                {/* Description and Features */}
-                <div className="space-y-8">
-                  <p className="text-lg text-muted-foreground">{pkg.description}</p>
-                  <div className="grid md:grid-cols-2 gap-x-12 gap-y-4">
-                    {pkg.includes.map((item) => (
-                      <div key={item} className="flex items-center">
-                        <div className="w-2 h-2 rounded-full bg-primary mr-3" />
-                        <span className="text-base">{item}</span>
-                      </div>
-                    ))}
-                  </div>
+              {/* Description and Features */}
+              <div className="flex-grow space-y-8 mb-8">
+                <p className="text-lg text-muted-foreground">{pkg.description}</p>
+                <div className="grid sm:grid-cols-2 gap-4">
+                  {pkg.includes.map((item) => (
+                    <div key={item} className="flex items-center">
+                      <div className="w-2 h-2 rounded-full bg-primary mr-3 flex-shrink-0" />
+                      <span className="text-base">{item}</span>
+                    </div>
+                  ))}
                 </div>
+              </div>
 
-                {/* Action Buttons */}
-                <div className="flex flex-col gap-4 pt-2">
-                  <button
-                    onClick={() => handlePurchase(pkg)}
-                    disabled={loading === pkg.id}
-                    className="w-full bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-4 rounded-lg font-medium transition-colors text-lg"
-                  >
-                    {loading === pkg.id ? 'Processing...' : 'Buy Now'}
-                  </button>
-                  <button className="w-full border-2 border-primary text-primary hover:bg-primary/10 px-8 py-4 rounded-lg font-medium transition-colors text-lg">
-                    Learn More
-                  </button>
-                </div>
+              {/* Action Buttons */}
+              <div className="flex flex-col gap-4">
+                <button
+                  onClick={() => handlePurchase(pkg)}
+                  disabled={loading === pkg.id}
+                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-4 rounded-lg font-medium transition-colors text-lg"
+                >
+                  {loading === pkg.id ? 'Processing...' : 'Buy Now'}
+                </button>
+                <button className="w-full border-2 border-primary text-primary hover:bg-primary/10 px-8 py-4 rounded-lg font-medium transition-colors text-lg">
+                  Learn More
+                </button>
               </div>
             </motion.div>
           ))}
@@ -265,7 +263,7 @@ export default function PackagesPage() {
           initial="initial"
           animate="animate"
           viewport={{ once: true }}
-          className="text-center mt-32 bg-primary/5 rounded-3xl p-16 hover:bg-primary/10 transition-colors"
+          className="text-center mt-32 mb-32 bg-primary/5 rounded-3xl p-16 hover:bg-primary/10 transition-colors"
         >
           <h2 className="text-4xl font-bold mb-6">Ready to Transform Your Brand?</h2>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
