@@ -6,7 +6,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { Loader2 } from 'lucide-react';
 import { AnimatedSection } from '@/components/ui/animated-section';
 import { Container } from '@/components/ui/container';
-import { MotionDiv } from '@/components/ui/motion';
+import { motion } from 'framer-motion';
 import { type ContactFormData } from '@/types';
 import { contactFormSchema } from '@/lib/validations';
 
@@ -72,9 +72,11 @@ export function ContactForm({
   return (
     <AnimatedSection className={className}>
       <Container>
-        <MotionDiv
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
           className="mx-auto max-w-2xl rounded-lg border bg-card p-6 shadow-sm md:p-8"
         >
           {submitSuccess ? (
@@ -244,7 +246,7 @@ export function ContactForm({
               </button>
             </form>
           )}
-        </MotionDiv>
+        </motion.div>
       </Container>
     </AnimatedSection>
   );

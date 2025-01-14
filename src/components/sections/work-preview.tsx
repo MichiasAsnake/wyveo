@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { AnimatedSection } from '@/components/ui/animated-section';
 import { Container } from '@/components/ui/container';
-import { MotionDiv } from '@/components/ui/motion';
 import { ProjectGrid } from '@/components/sections/project-grid';
 
 export function WorkPreviewSection() {

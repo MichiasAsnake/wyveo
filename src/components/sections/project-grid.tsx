@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { AnimatedSection } from '@/components/ui/animated-section';
 import { Container } from '@/components/ui/container';
-import { MotionDiv } from '@/components/ui/motion';
+import { motion } from 'framer-motion';
 import { type Project } from '@/types';
 
 const projects: Project[] = [
@@ -48,11 +48,13 @@ const projects: Project[] = [
 
 const categories = Array.from(new Set(projects.map((project) => project.category)));
 
-function ProjectCard({ project }: { project: Project }) {
+function ProjectCard({ project, index }: { project: Project; index: number }) {
   return (
-    <MotionDiv
+    <motion.div
       initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
       className="group relative overflow-hidden rounded-lg bg-card"
     >
       <div className="aspect-[16/9] overflow-hidden">
@@ -102,7 +104,7 @@ function ProjectCard({ project }: { project: Project }) {
           <span className="sr-only">View project {project.title}</span>
         </Link>
       )}
-    </MotionDiv>
+    </motion.div>
   );
 }
 
@@ -157,8 +159,8 @@ export function ProjectGrid({
         )}
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {displayedProjects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
+          {displayedProjects.map((project, index) => (
+            <ProjectCard key={project.id} project={project} index={index} />
           ))}
         </div>
       </Container>

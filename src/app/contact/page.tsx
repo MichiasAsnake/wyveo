@@ -1,7 +1,9 @@
+'use client';
+
 import { Mail, MapPin, Phone } from 'lucide-react';
 import { AnimatedSection } from '@/components/ui/animated-section';
 import { Container } from '@/components/ui/container';
-import { MotionDiv, MotionH1, MotionP } from '@/components/ui/motion';
+import { motion } from 'framer-motion';
 import { ContactForm } from '@/components/sections/contact-form';
 
 const containerVariants = {
@@ -49,14 +51,14 @@ const contactInfo = [
 
 function ContactInfo() {
   return (
-    <MotionDiv
+    <motion.div
       variants={containerVariants}
       initial="hidden"
       animate="visible"
       className="grid gap-8 md:grid-cols-3"
     >
       {contactInfo.map(({ icon: Icon, label, value, href }) => (
-        <MotionDiv
+        <motion.div
           key={label}
           variants={itemVariants}
           className="flex flex-col items-center text-center"
@@ -71,9 +73,9 @@ function ContactInfo() {
           >
             {value}
           </a>
-        </MotionDiv>
+        </motion.div>
       ))}
-    </MotionDiv>
+    </motion.div>
   );
 }
 
@@ -83,29 +85,31 @@ export default function ContactPage() {
       {/* Hero Section */}
       <AnimatedSection>
         <Container>
-          <MotionDiv
+          <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="mx-auto max-w-3xl text-center"
+            className="mx-auto max-w-5xl px-6 py-24 sm:py-32 lg:px-8"
           >
-            <MotionH1
-              variants={itemVariants}
-              className="text-4xl font-bold tracking-tight sm:text-6xl"
-            >
-              Let's{' '}
-              <span className="bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
-                Work Together
-              </span>
-            </MotionH1>
-            <MotionP
-              variants={itemVariants}
-              className="mt-6 text-lg text-muted-foreground"
-            >
-              Have a project in mind? We'd love to hear about it. Send us a
-              message and we'll get back to you as soon as possible.
-            </MotionP>
-          </MotionDiv>
+            <motion.div variants={containerVariants} className="text-center">
+              <motion.h1
+                variants={itemVariants}
+                className="text-4xl font-bold tracking-tight sm:text-6xl"
+              >
+                Let's{' '}
+                <span className="bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
+                  Work Together
+                </span>
+              </motion.h1>
+              <motion.p
+                variants={itemVariants}
+                className="mt-6 text-lg text-muted-foreground"
+              >
+                Have a project in mind? We'd love to hear about it. Send us a
+                message and we'll get back to you as soon as possible.
+              </motion.p>
+            </motion.div>
+          </motion.div>
         </Container>
       </AnimatedSection>
 

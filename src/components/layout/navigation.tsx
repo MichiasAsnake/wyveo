@@ -4,8 +4,8 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
+import { motion, type Variants } from 'framer-motion';
 import { Logo } from '@/components/ui/logo';
-import { MotionDiv } from '@/components/ui/motion';
 
 const navigationItems = [
   { href: '/work', label: 'Work' },
@@ -13,7 +13,7 @@ const navigationItems = [
   { href: '/contact', label: 'Contact' },
 ];
 
-const mobileMenuVariants = {
+const mobileMenuVariants: Variants = {
   closed: {
     opacity: 0,
     height: 0,
@@ -79,7 +79,7 @@ export function Navigation() {
       </button>
 
       {/* Mobile Navigation */}
-      <MotionDiv
+      <motion.div
         className="absolute left-0 right-0 top-16 overflow-hidden bg-background md:hidden"
         initial="closed"
         animate={isMobileMenuOpen ? 'open' : 'closed'}
@@ -114,7 +114,7 @@ export function Navigation() {
             </Link>
           </div>
         </div>
-      </MotionDiv>
+      </motion.div>
     </nav>
   );
 } 

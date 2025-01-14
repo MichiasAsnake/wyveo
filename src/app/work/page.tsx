@@ -1,7 +1,9 @@
+'use client';
+
 import { ArrowRight } from 'lucide-react';
 import { AnimatedSection } from '@/components/ui/animated-section';
 import { Container } from '@/components/ui/container';
-import { MotionDiv, MotionH1, MotionP } from '@/components/ui/motion';
+import { motion } from 'framer-motion';
 import { ProjectGrid } from '@/components/sections/project-grid';
 
 const containerVariants = {
@@ -32,13 +34,13 @@ export default function WorkPage() {
       {/* Hero Section */}
       <AnimatedSection>
         <Container>
-          <MotionDiv
+          <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="mx-auto max-w-3xl text-center"
+            className="mx-auto max-w-5xl px-6 py-24 sm:py-32 lg:px-8"
           >
-            <MotionH1
+            <motion.h1
               variants={itemVariants}
               className="text-4xl font-bold tracking-tight sm:text-6xl"
             >
@@ -46,16 +48,16 @@ export default function WorkPage() {
               <span className="bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
                 Featured Work
               </span>
-            </MotionH1>
-            <MotionP
+            </motion.h1>
+            <motion.p
               variants={itemVariants}
               className="mt-6 text-lg text-muted-foreground"
             >
               Explore our portfolio of successful projects. Each project represents
               our commitment to excellence, innovation, and delivering real value
               to our clients.
-            </MotionP>
-            <MotionDiv variants={itemVariants} className="mt-10">
+            </motion.p>
+            <motion.div variants={itemVariants} className="mt-10">
               <a
                 href="#contact"
                 className="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2 font-medium text-primary-foreground transition-colors hover:bg-primary/90"
@@ -63,8 +65,8 @@ export default function WorkPage() {
                 Start Your Project
                 <ArrowRight className="h-4 w-4" />
               </a>
-            </MotionDiv>
-          </MotionDiv>
+            </motion.div>
+          </motion.div>
         </Container>
       </AnimatedSection>
 

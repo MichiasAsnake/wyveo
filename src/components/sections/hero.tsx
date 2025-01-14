@@ -4,7 +4,9 @@ import Link from 'next/link';
 import { SplineScene } from '@/components/ui/spline';
 import { Spotlight } from '@/components/ui/spotlight';
 import { Container } from '@/components/ui/container';
-import { MotionDiv, MotionH1, MotionP } from '@/components/ui/motion';
+import { motion } from 'framer-motion';
+import Image from 'next/image';
+import { ArrowRight } from 'lucide-react';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -65,31 +67,31 @@ export function HeroSection() {
       
       <Container>
         <div className="grid gap-8 lg:grid-cols-2">
-          <MotionDiv
+          <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="visible"
             className="relative z-10 flex flex-col justify-center"
           >
-            <MotionH1
+            <motion.h1
               variants={titleVariants}
               className="bg-gradient-to-b from-foreground to-muted-foreground bg-clip-text text-transparent"
             >
               Transform Your Online Presence with{' '}
               <span className="text-primary">Expert Web Design</span>
-            </MotionH1>
+            </motion.h1>
 
-            <MotionP
+            <motion.p
               variants={textVariants}
               className="mt-6 max-w-2xl text-lg text-muted-foreground"
             >
               We create stunning, modern websites that help businesses stand out and
               succeed in the digital world. From concept to launch, we're your partner
               in digital excellence.
-            </MotionP>
+            </motion.p>
 
-            <MotionDiv variants={containerVariants} className="mt-10 flex gap-4">
-              <MotionDiv
+            <motion.div variants={containerVariants} className="mt-10 flex gap-4">
+              <motion.div
                 variants={buttonVariants}
                 whileHover="hover"
                 whileTap="tap"
@@ -100,9 +102,9 @@ export function HeroSection() {
                 >
                   View Our Services
                 </Link>
-              </MotionDiv>
+              </motion.div>
               
-              <MotionDiv
+              <motion.div
                 variants={buttonVariants}
                 whileHover="hover"
                 whileTap="tap"
@@ -113,11 +115,11 @@ export function HeroSection() {
                 >
                   See Our Work
                 </Link>
-              </MotionDiv>
-            </MotionDiv>
-          </MotionDiv>
+              </motion.div>
+            </motion.div>
+          </motion.div>
 
-          <MotionDiv 
+          <motion.div 
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{
@@ -134,7 +136,7 @@ export function HeroSection() {
                 className="w-full h-full"
               />
             </div>
-          </MotionDiv>
+          </motion.div>
         </div>
       </Container>
     </section>
