@@ -56,8 +56,6 @@ export function BaseLayout({ children }: SectionProps) {
             <div>
               <h3 className="mb-4 text-lg font-semibold">Contact Us</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>hello@wyveo.com</li>
-                <li>+1 (555) 123-4567</li>
                 <li>San Francisco, CA</li>
               </ul>
             </div>
