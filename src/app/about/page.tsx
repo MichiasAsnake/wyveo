@@ -3,6 +3,9 @@ import { AnimatedSection } from '@/components/ui/animated-section';
 import { Container } from '@/components/ui/container';
 import { MotionDiv } from '@/components/ui/motion';
 import { SplineScene } from '@/components/ui/spline';
+import { motion } from 'framer-motion';
+import { type WithClassName } from '@/types/motion';
+import { MotionContainer } from '@/components/ui/motion-container';
 
 const teamMembers = [
   {
@@ -59,13 +62,13 @@ export default function AboutPage() {
       {/* Hero Section */}
       <AnimatedSection>
         <Container>
-          <MotionDiv
+          <MotionContainer
             variants={containerVariants}
             initial="hidden"
             animate="visible"
             className="flex items-center gap-16"
           >
-            <MotionDiv 
+            <MotionContainer
               variants={itemVariants}
               className="flex-1 max-w-xl"
             >
@@ -102,8 +105,8 @@ export default function AboutPage() {
                   </div>
                 </div>
               </div>
-            </MotionDiv>
-            <MotionDiv
+            </MotionContainer>
+            <MotionContainer
               variants={itemVariants}
               className="relative flex-1 h-[600px] hidden lg:block"
             >
@@ -113,21 +116,21 @@ export default function AboutPage() {
                   className="w-full h-[102%] -translate-y-52 -translate-x-40"
                 />
               </div>
-            </MotionDiv>
-          </MotionDiv>
+            </MotionContainer>
+          </MotionContainer>
         </Container>
       </AnimatedSection>
 
       {/* Team Section */}
       <AnimatedSection className="bg-muted/50">
         <Container>
-          <MotionDiv
+          <MotionContainer
             variants={containerVariants}
             initial="hidden"
             animate="visible"
             className="flex flex-col items-center"
           >
-            <MotionDiv
+            <MotionContainer
               variants={itemVariants}
               className="max-w-2xl text-center"
             >
@@ -139,9 +142,9 @@ export default function AboutPage() {
                 to life with creativity, technical excellence, and attention to
                 detail.
               </p>
-            </MotionDiv>
+            </MotionContainer>
 
-            <MotionDiv
+            <MotionContainer
               variants={itemVariants}
               className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-4"
             >
@@ -168,8 +171,8 @@ export default function AboutPage() {
                   </div>
                 </div>
               ))}
-            </MotionDiv>
-          </MotionDiv>
+            </MotionContainer>
+          </MotionContainer>
         </Container>
       </AnimatedSection>
     </div>

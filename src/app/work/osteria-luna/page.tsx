@@ -51,6 +51,17 @@ export default function OsteriaLunaPage() {
             <span className="font-medium">Services</span>
             <span>Web Design, Development, Branding</span>
           </div>
+          <div className="flex justify-between">
+            <span className="font-medium">Live Site</span>
+            <a 
+              href="https://osteria-kohl.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary hover:underline"
+            >
+              Visit Website
+            </a>
+          </div>
         </div>
       </section>
 

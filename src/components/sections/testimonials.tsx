@@ -1,8 +1,9 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { Variants } from 'framer-motion';
 import { Container } from '@/components/ui/container';
 import { StarIcon } from 'lucide-react';
+import { MotionDiv } from '@/components/ui/motion';
 
 const testimonials = [
   {
@@ -25,7 +26,7 @@ const testimonials = [
   }
 ];
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -35,7 +36,7 @@ const containerVariants = {
   }
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
@@ -50,36 +51,9 @@ const itemVariants = {
 
 export function TestimonialsSection() {
   return (
-    <section className="relative py-24 bg-primary/5 overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0">
-        <div className="absolute -top-24 -right-24 w-96 h-96 bg-primary/5 rounded-full" />
-        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-primary/5 rounded-full" />
-      </div>
-
-      <Container className="relative">
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="max-w-3xl mx-auto text-center mb-16"
-        >
-          <motion.h2 
-            variants={itemVariants}
-            className="text-3xl md:text-4xl font-bold mb-4"
-          >
-            What Our Clients Say
-          </motion.h2>
-          <motion.p 
-            variants={itemVariants}
-            className="text-lg text-muted-foreground"
-          >
-            Don't just take our word for it - hear from some of our satisfied clients
-          </motion.p>
-        </motion.div>
-
-        <motion.div
+    <section className="py-24 bg-background">
+      <Container>
+        <MotionDiv
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -87,7 +61,7 @@ export function TestimonialsSection() {
           className="grid gap-8 md:grid-cols-3"
         >
           {testimonials.map((testimonial, index) => (
-            <motion.div
+            <MotionDiv
               key={index}
               variants={itemVariants}
               className="relative bg-background p-8 rounded-2xl shadow-sm"
@@ -114,9 +88,9 @@ export function TestimonialsSection() {
                 <div className="font-semibold">{testimonial.author}</div>
                 <div className="text-sm text-muted-foreground">{testimonial.role}</div>
               </div>
-            </motion.div>
+            </MotionDiv>
           ))}
-        </motion.div>
+        </MotionDiv>
       </Container>
     </section>
   );

@@ -7,7 +7,8 @@ import React, {
   useState,
   type SVGProps,
 } from "react"
-import { AnimatePresence, motion } from "framer-motion"
+import { AnimatePresence } from "framer-motion"
+import { MotionDiv } from '@/components/ui/motion';
 
 interface Logo {
   name: string
@@ -57,7 +58,7 @@ const LogoColumn: React.FC<LogoColumnProps> = React.memo(
     const CurrentLogo = useMemo(() => logos[currentIndex].img, [logos, currentIndex])
 
     return (
-      <motion.div
+      <MotionDiv
         className="relative h-14 w-24 overflow-hidden md:h-24 md:w-48"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
@@ -68,7 +69,7 @@ const LogoColumn: React.FC<LogoColumnProps> = React.memo(
         }}
       >
         <AnimatePresence mode="wait">
-          <motion.div
+          <MotionDiv
             key={`${logos[currentIndex].id}-${currentIndex}`}
             className="absolute inset-0 flex items-center justify-center"
             initial={{ y: "10%", opacity: 0, filter: "blur(8px)" }}
@@ -97,9 +98,9 @@ const LogoColumn: React.FC<LogoColumnProps> = React.memo(
             }}
           >
             <CurrentLogo className="h-20 w-20 max-h-[80%] max-w-[80%] object-contain md:h-32 md:w-32" />
-          </motion.div>
+          </MotionDiv>
         </AnimatePresence>
-      </motion.div>
+      </MotionDiv>
     )
   }
 )
