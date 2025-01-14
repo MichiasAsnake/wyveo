@@ -8,13 +8,13 @@ import { TrophyIcon, UsersIcon, StarIcon, HeartIcon } from 'lucide-react';
 const stats = [
   {
     icon: TrophyIcon,
-    value: '150+',
+    value: '10+',
     label: 'Projects Completed',
     description: 'Successfully delivered projects across various industries'
   },
   {
     icon: UsersIcon,
-    value: '50+',
+    value: '15+',
     label: 'Happy Clients',
     description: 'Trusted by businesses worldwide'
   },
