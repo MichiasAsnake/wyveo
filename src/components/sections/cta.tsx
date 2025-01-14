@@ -6,6 +6,7 @@ import { Container } from '@/components/ui/container';
 import { ArrowRightIcon } from 'lucide-react';
 import { Spotlight } from '@/components/ui/spotlight';
 import { MotionDiv, MotionH2, MotionP } from '@/components/ui/motion';
+import { ShinyLink } from '@/components/ui/button-shiny';
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -89,13 +90,12 @@ export function CTASection() {
               whileHover="hover"
               whileTap="tap"
             >
-              <Link
+              <ShinyLink
                 href="/packages"
-                className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-full text-lg font-medium hover:bg-primary/90 transition-colors"
+                label="View Our Packages"
               >
-                View Our Packages
-                <ArrowRightIcon className="w-5 h-5" />
-              </Link>
+                <ArrowRightIcon className="w-5 h-5 text-[#B873F8]" />
+              </ShinyLink>
             </MotionDiv>
 
             <MotionDiv
@@ -105,7 +105,7 @@ export function CTASection() {
             >
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 border-2 border-primary text-primary px-8 py-4 rounded-full text-lg font-medium hover:bg-primary/10 transition-colors"
+                className="inline-flex items-center gap-2 border border-primary text-primary px-8 py-2 rounded-lg text-lg font-medium hover:bg-primary/10 transition-colors"
               >
                 Contact Us
                 <ArrowRightIcon className="w-5 h-5" />

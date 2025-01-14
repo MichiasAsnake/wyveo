@@ -5,6 +5,7 @@ import { AnimatedSection } from '@/components/ui/animated-section';
 import { Container } from '@/components/ui/container';
 import { motion } from 'framer-motion';
 import { ProjectGrid } from '@/components/sections/project-grid';
+import { ShinyLink } from '@/components/ui/button-shiny';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -58,13 +59,12 @@ export default function WorkPage() {
               to our clients.
             </motion.p>
             <motion.div variants={itemVariants} className="mt-10">
-              <a
+              <ShinyLink
                 href="#contact"
-                className="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2 font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+                label="Start Your Project"
               >
-                Start Your Project
-                <ArrowRight className="h-4 w-4" />
-              </a>
+                <ArrowRight className="w-5 h-5 text-[#B873F8]" />
+              </ShinyLink>
             </motion.div>
           </motion.div>
         </Container>

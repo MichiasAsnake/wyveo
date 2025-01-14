@@ -6,9 +6,10 @@ import { cn } from '@/lib/utils';
 interface SplineSceneProps {
   scene: string;
   className?: string;
+  priority?: boolean;
 }
 
-export function SplineScene({ scene, className }: SplineSceneProps) {
+export function SplineScene({ scene, className, priority }: SplineSceneProps) {
   return (
     <div className={cn('relative w-full h-full', className)}>
       <div style={{ 

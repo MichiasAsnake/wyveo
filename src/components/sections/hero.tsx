@@ -7,6 +7,7 @@ import { Container } from '@/components/ui/container';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
+import { ButtonCta, ShinyLink } from '@/components/ui/button-shiny';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -96,12 +97,12 @@ export function HeroSection() {
                 whileHover="hover"
                 whileTap="tap"
               >
-                <Link
+                <ShinyLink
                   href="/services"
-                  className="inline-flex h-11 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground ring-offset-background transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                  label="View Our Services"
                 >
-                  View Our Services
-                </Link>
+                  <ArrowRight className="w-5 h-5 text-[#B873F8]" />
+                </ShinyLink>
               </motion.div>
               
               <motion.div
@@ -111,7 +112,7 @@ export function HeroSection() {
               >
                 <Link
                   href="/work"
-                  className="inline-flex h-11 items-center justify-center rounded-md border border-input bg-background px-8 text-sm font-medium ring-offset-background transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                  className="inline-flex h-12 items-center justify-center rounded-lg border border-input bg-background px-8 text-sm font-medium ring-offset-background transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                 >
                   See Our Work
                 </Link>

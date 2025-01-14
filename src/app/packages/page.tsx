@@ -6,6 +6,7 @@ import { createCheckoutSession } from '@/lib/stripe';
 import { RocketIcon, TrendingUpIcon, StarIcon, ArrowRightIcon, SparklesIcon, BrainIcon, UsersIcon, HeartIcon, CheckCircle2Icon, TrophyIcon, BarChart3Icon, LucideIcon } from 'lucide-react';
 import { Container } from '@/components/ui/container';
 import { cn } from '@/lib/utils';
+import { ButtonCta, ShinyLink } from '@/components/ui/button-shiny';
 
 const fadeInUp: Variants = {
   initial: { opacity: 0, y: 20 },
@@ -210,8 +211,8 @@ export default function PackagesPage() {
               key={pkg.id}
               variants={itemVariants}
               className={cn(
-                'relative rounded-2xl p-8 bg-white/10 backdrop-blur-sm shadow-sm transition-shadow hover:shadow-md flex flex-col border border-white/40',
-                pkg.popularChoice && 'border-2 border-primary'
+                'relative rounded-2xl p-8 backdrop-blur-sm shadow-sm transition-shadow hover:shadow-md flex flex-col border border-white/40',
+                pkg.popularChoice && 'ring-0 ring-offset-2 ring-purple-500'
               )}
             >
               {/* Price Tag */}
@@ -242,14 +243,13 @@ export default function PackagesPage() {
 
               {/* Action Buttons */}
               <div className="flex flex-col gap-4">
-                <button
+                <ButtonCta
                   onClick={() => handlePurchase(pkg)}
                   disabled={loading === pkg.id}
-                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-4 rounded-lg font-medium transition-colors text-lg"
-                >
-                  {loading === pkg.id ? 'Processing...' : 'Buy Now'}
-                </button>
-                <button className="w-full border-2 border-primary text-primary hover:bg-primary/10 px-8 py-4 rounded-lg font-medium transition-colors text-lg">
+                  label={loading === pkg.id ? 'Processing...' : 'Buy Now'}
+                  className="w-full"
+                />
+                <button className="w-full border text-primary hover:bg-primary/10 px-8 py-4 rounded-lg font-medium transition-colors text-lg">
                   Learn More
                 </button>
               </div>
@@ -269,17 +269,16 @@ export default function PackagesPage() {
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
             Don't see a package that fits your needs? Let's create something custom together.
           </p>
-          <motion.a 
-            href="https://calendly.com/mickyasnake/30min"
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-full text-lg font-medium hover:bg-primary/90 transition-colors"
-          >
-            Schedule a Call
-            <ArrowRightIcon className="w-5 h-5" />
-          </motion.a>
+          <motion.div variants={containerVariants} className="mt-10">
+            <ShinyLink
+              href="https://calendly.com/mickyasnake/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+              label="Schedule a Call"
+            >
+              <ArrowRightIcon className="w-5 h-5 text-[#B873F8]" />
+            </ShinyLink>
+          </motion.div>
         </motion.div>
       </Container>
     </main>
