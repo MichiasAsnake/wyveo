@@ -1,11 +1,10 @@
 'use client';
 
 import { useState } from 'react';
-import { Variants } from 'framer-motion';
+import { Variants, motion } from 'framer-motion';
 import { createCheckoutSession } from '@/lib/stripe';
 import { RocketIcon, TrendingUpIcon, StarIcon, ArrowRightIcon, SparklesIcon, BrainIcon, UsersIcon, HeartIcon, CheckCircle2Icon, TrophyIcon, BarChart3Icon, LucideIcon } from 'lucide-react';
 import { Container } from '@/components/ui/container';
-import { MotionDiv, MotionA } from '@/components/ui/motion';
 import { cn } from '@/lib/utils';
 
 const fadeInUp: Variants = {
@@ -186,7 +185,7 @@ export default function PackagesPage() {
   return (
     <main>
       <Container>
-        <MotionDiv
+        <motion.div
           variants={containerVariants}
           initial="initial"
           animate="animate"
@@ -198,16 +197,16 @@ export default function PackagesPage() {
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Select the package that best fits your needs. Each package is designed to deliver exceptional value and results.
           </p>
-        </MotionDiv>
+        </motion.div>
 
-        <MotionDiv
+        <motion.div
           variants={containerVariants}
           initial="initial"
           animate="animate"
           className="grid gap-8 md:grid-cols-3 mb-32"
         >
           {packages.map((pkg) => (
-            <MotionDiv
+            <motion.div
               key={pkg.id}
               variants={itemVariants}
               className={cn(
@@ -256,12 +255,12 @@ export default function PackagesPage() {
                   </button>
                 </div>
               </div>
-            </MotionDiv>
+            </motion.div>
           ))}
-        </MotionDiv>
+        </motion.div>
 
         {/* CTA Section */}
-        <MotionDiv
+        <motion.div
           variants={scaleIn}
           initial="initial"
           animate="animate"
@@ -272,7 +271,7 @@ export default function PackagesPage() {
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
             Don't see a package that fits your needs? Let's create something custom together.
           </p>
-          <MotionA 
+          <motion.a 
             href="https://calendly.com/mickyasnake/30min"
             target="_blank"
             rel="noopener noreferrer"
@@ -282,8 +281,8 @@ export default function PackagesPage() {
           >
             Schedule a Call
             <ArrowRightIcon className="w-5 h-5" />
-          </MotionA>
-        </MotionDiv>
+          </motion.a>
+        </motion.div>
       </Container>
     </main>
   );
