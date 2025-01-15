@@ -56,7 +56,7 @@ export default function PolamConstructionPage() {
             <span className="font-medium">Live Site</span>
             <a 
               href="#"
-              target="_blank"
+              target="https://polamconstruction.vercel.app/"
               rel="noopener noreferrer"
               className="text-primary hover:underline"
             >
