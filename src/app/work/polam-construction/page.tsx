@@ -55,8 +55,8 @@ export default function PolamConstructionPage() {
           <div className="flex justify-between">
             <span className="font-medium">Live Site</span>
             <a 
-              href="#"
-              target="https://polamconstruction.vercel.app/"
+              href="https://polamconstruction.vercel.app/"
+              target="_blank"
               rel="noopener noreferrer"
               className="text-primary hover:underline"
             >
