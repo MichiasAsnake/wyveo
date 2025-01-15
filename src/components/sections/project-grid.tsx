@@ -37,6 +37,17 @@ const projects: Project[] = [
     status: 'completed'
   },
   {
+    id: 'polam-construction',
+    title: 'Polam Construction',
+    description: 'A premium website for a renowned construction company, showcasing 45 years of excellence in custom homes and renovations.',
+    imageUrl: '/work/polam-construction/polam1.png',
+    category: 'Construction',
+    tags: ['Next.js', 'TypeScript', 'Tailwind CSS'],
+    completionDate: '2024-02',
+    link: '/work/polam-construction',
+    status: 'completed'
+  },
+  {
     id: 'modern-ecommerce',
     title: 'Modern E-commerce Platform',
     description:
@@ -47,19 +58,7 @@ const projects: Project[] = [
     completionDate: 'Coming Soon',
     link: '#',
     status: 'coming-soon'
-  },
-  {
-    id: 'saas-dashboard',
-    title: 'SaaS Dashboard',
-    description:
-      'Intuitive dashboard interface for a SaaS platform with real-time analytics.',
-    imageUrl: '/images/projects/saas.jpg',
-    category: 'SaaS',
-    tags: ['Vue.js', 'D3.js', 'TailwindCSS'],
-    completionDate: 'Coming Soon',
-    link: '#',
-    status: 'coming-soon'
-  },
+  }
 ];
 
 const categories = Array.from(new Set(projects.map((project) => project.category)));
