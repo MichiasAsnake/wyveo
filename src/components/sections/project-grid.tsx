@@ -16,6 +16,7 @@ interface Project {
   tags: string[];
   completionDate: string;
   link: string;
+  liveUrl: string;
   status: 'completed' | 'coming-soon';
 }
 
@@ -26,6 +27,18 @@ interface ProjectCardProps {
 
 const projects: Project[] = [
   {
+    id: 'premium-recovery',
+    title: 'Premium Recovery Lounge',
+    description: 'A sophisticated web platform for a luxury wellness and recovery center, featuring elegant design and seamless booking experience.',
+    imageUrl: '/work/premium-recovery/hero.png',
+    category: 'Health & Wellness',
+    tags: ['Next.js', 'TypeScript', 'Tailwind CSS'],
+    completionDate: '2024-03',
+    link: '/work/premium-recovery',
+    liveUrl: 'https://rhouseclone.vercel.app/',
+    status: 'completed'
+  },
+  {
     id: 'osteria-luna',
     title: 'Osteria Luna',
     description: 'A modern digital presence for an authentic Italian restaurant, featuring an elegant design and seamless dining experience.',
@@ -34,6 +47,7 @@ const projects: Project[] = [
     tags: ['Next.js', 'TypeScript', 'Tailwind CSS'],
     completionDate: '2024-01',
     link: '/work/osteria-luna',
+    liveUrl: 'https://osteria-luna.vercel.app/',
     status: 'completed'
   },
   {
@@ -45,6 +59,7 @@ const projects: Project[] = [
     tags: ['Next.js', 'TypeScript', 'Tailwind CSS'],
     completionDate: '2024-02',
     link: '/work/polam-construction',
+    liveUrl: 'https://polamconstruction.vercel.app/',
     status: 'completed'
   },
   {
@@ -57,6 +72,7 @@ const projects: Project[] = [
     tags: ['Next.js', 'Stripe', 'Tailwind CSS'],
     completionDate: 'Coming Soon',
     link: '#',
+    liveUrl: '#',
     status: 'coming-soon'
   }
 ];
