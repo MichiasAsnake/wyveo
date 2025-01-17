@@ -27,7 +27,7 @@ const servicePackages: ServicePackage[] = [
     type: 'LAUNCH',
     name: 'Launch Package',
     description: 'Perfect for small businesses getting started with their online presence.',
-    price: 1000,
+    price: 100,
     features: [
       { id: '1', name: 'Responsive Website Design', included: true },
       { id: '2', name: '5 Core Pages', included: true },
@@ -41,7 +41,7 @@ const servicePackages: ServicePackage[] = [
     type: 'GROW',
     name: 'Grow Package',
     description: 'Ideal for businesses looking to expand their digital footprint.',
-    price: 1500,
+    price: 250,
     features: [
       { id: '1', name: 'Everything in Launch Package', included: true },
       { id: '2', name: 'Up to 10 Custom Pages', included: true },
@@ -56,7 +56,7 @@ const servicePackages: ServicePackage[] = [
     type: 'FULL_SERVICE',
     name: 'Full Service Package',
     description: 'Complete solution for established businesses seeking digital excellence.',
-    price: 3000,
+    price: 500,
     features: [
       { id: '1', name: 'Everything in Grow Package', included: true },
       { id: '2', name: 'Custom Features Development', included: true },
