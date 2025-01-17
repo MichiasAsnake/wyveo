@@ -97,7 +97,7 @@ const packages: Package[] = [
   {
     id: 'launch',
     name: 'Launch',
-    price: 1000,
+    price: 100,
     icon: RocketIcon,
     description: "You're looking to start with brand building. We'll help you get started with a solid strategy.",
     includes: [
@@ -112,7 +112,7 @@ const packages: Package[] = [
   {
     id: 'grow',
     name: 'Grow',
-    price: 1500,
+    price: 250,
     icon: TrendingUpIcon,
     description: "You've got your branding down, but you need that boost to get you where you want to be.",
     includes: [
@@ -128,7 +128,7 @@ const packages: Package[] = [
   {
     id: 'full-service',
     name: 'Full Service',
-    price: 3000,
+    price: 400,
     icon: StarIcon,
     description: "Headwords is now your company's user-specified branding + design documents team. Want it? We've got you covered.",
     includes: [

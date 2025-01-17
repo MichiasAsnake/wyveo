@@ -9,21 +9,21 @@ import { StatsSection } from '@/components/sections/stats';
 import { CTASection } from '@/components/sections/cta';
 
 export const metadata: Metadata = {
-  title: 'Wyveo - Modern Web Design & Development',
-  description: 'Transform your digital presence with our expert web design and development services. We create modern, responsive websites that drive results.',
-  keywords: ['web design', 'web development', 'responsive design', 'modern websites', 'digital solutions', 'custom web development'],
+  title: 'Independent Web Developer - Modern Web Design & Development',
+  description: 'Transform your digital presence with expert web design and development services. I create modern, responsive websites that drive results.',
+  keywords: ['freelance web developer', 'web design', 'web development', 'responsive design', 'modern websites', 'digital solutions', 'custom web development'],
 };
 
 export default function HomePage() {
   return (
     <main className="flex-1">
       <HeroSection />
+      <WorkPreviewSection />
       <StatsSection />
       <FeaturesSection />
       <ProcessSection />
       <ServicePackagesSection />
       <TestimonialsSection />
-      <WorkPreviewSection />
       <CTASection />
     </main>
   );

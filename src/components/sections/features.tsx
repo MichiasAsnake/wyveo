@@ -14,32 +14,32 @@ const features: Feature[] = [
   {
     icon: PaintbrushIcon,
     title: 'Beautiful Design',
-    description: "Stunning visuals that capture your brand's essence and engage your audience from the first click."
+    description: "I create stunning visuals that capture your brand's essence and engage your audience from the first click."
   },
   {
     icon: CodeIcon,
     title: 'Clean Code',
-    description: 'Expertly crafted, maintainable code that ensures your website runs smoothly and efficiently.'
+    description: 'I write expertly crafted, maintainable code that ensures your website runs smoothly and efficiently.'
   },
   {
     icon: GaugeIcon,
     title: 'Lightning Fast',
-    description: 'Optimized performance that keeps your visitors engaged and improves search engine rankings.'
+    description: 'I optimize performance to keep your visitors engaged and improve search engine rankings.'
   },
   {
     icon: SparklesIcon,
     title: 'Modern Tech Stack',
-    description: 'Latest technologies and frameworks to build future-proof solutions that scale with your business.'
+    description: 'I use the latest technologies and frameworks to build future-proof solutions that scale with your business.'
   },
   {
     icon: ShieldCheckIcon,
     title: 'Secure & Reliable',
-    description: 'Built-in security features and best practices to keep your website and data protected.'
+    description: 'I implement robust security features and follow best practices to keep your website and data protected.'
   },
   {
     icon: HeartHandshakeIcon,
-    title: 'Dedicated Support',
-    description: 'Ongoing maintenance and support to ensure your website stays up-to-date and performs at its best.'
+    title: 'Personal Support',
+    description: 'I provide direct, ongoing support to ensure your website stays up-to-date and performs at its best.'
   }
 ];
 

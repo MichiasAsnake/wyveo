@@ -17,22 +17,7 @@ const teamMembers: TeamMember[] = [
     name: 'Michias Asnake',
     role: 'Founder & CEO',
     bio: 'With over 4 years of experience in web development and design, Micky leads our team with passion and innovation.',
-  },
-  {
-    name: 'Sarah Johnson',
-    role: 'Lead Designer',
-    bio: 'Sarah brings creativity and user-centered design principles to every project, ensuring beautiful and functional results.',
-  },
-  {
-    name: 'Michael Chen',
-    role: 'Technical Director',
-    bio: 'Michael oversees all technical aspects of our projects, specializing in modern web technologies and performance optimization.',
-  },
-  {
-    name: 'Emma Wilson',
-    role: 'Project Manager',
-    bio: 'Emma ensures smooth project delivery and excellent client communication throughout the development process.',
-  },
+  }
 ];
 
 const containerVariants: Variants = {
@@ -72,13 +57,13 @@ export default function AboutPage() {
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <motion.div variants={containerVariants}>
                 <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
-                  We Create Digital Excellence
+                  Crafting Digital Excellence
                 </h1>
                 <p className="mt-6 text-lg text-muted-foreground">
-                  At Wyveo, we're passionate about creating exceptional digital
-                  experiences that help businesses thrive in the modern world. Our
-                  team of experts combines creativity, technical expertise, and
-                  strategic thinking to deliver outstanding results.
+                  I'm passionate about creating exceptional digital
+                  experiences that help businesses thrive in the modern world. With my
+                  combined expertise in design, development, and strategic thinking,
+                  I deliver outstanding results for every project.
                 </p>
                 <div className="mt-8 flex flex-col gap-4 text-muted-foreground">
                   <div className="flex items-center gap-4">
@@ -87,7 +72,7 @@ export default function AboutPage() {
                     </div>
                     <div>
                       <h3 className="font-medium text-foreground">Years of Experience</h3>
-                      <p className="text-sm">Delivering exceptional web solutions</p>
+                      <p className="text-sm">Creating exceptional web solutions</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-4">
@@ -95,7 +80,7 @@ export default function AboutPage() {
                       <span className="text-lg font-bold">10+</span>
                     </div>
                     <div>
-                      <h3 className="font-medium text-foreground">Projects Completed</h3>
+                      <h3 className="font-medium text-foreground">Projects Delivered</h3>
                       <p className="text-sm">For clients worldwide</p>
                     </div>
                   </div>
@@ -146,7 +131,7 @@ export default function AboutPage() {
 
             <motion.div
               variants={containerVariants}
-              className="mx-auto mt-16 grid max-w-4xl gap-6 sm:grid-cols-2"
+              className="mx-auto mt-16 grid justify-center  max-w-lg gap-6 sm:grid-cols-1"
             >
               {teamMembers.map((member) => (
                 <motion.div

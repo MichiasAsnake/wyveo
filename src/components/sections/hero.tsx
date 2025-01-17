@@ -86,9 +86,9 @@ export function HeroSection() {
               variants={textVariants}
               className="mt-6 max-w-2xl text-lg text-muted-foreground"
             >
-              We create stunning, modern websites that help businesses stand out and
-              succeed in the digital world. From concept to launch, we're your partner
-              in digital excellence.
+              I create stunning, modern websites that help businesses stand out and
+              succeed in the digital world. As your dedicated developer, I'll guide you
+              through every step from concept to launch.
             </motion.p>
 
             <motion.div variants={containerVariants} className="mt-10 flex gap-4">
@@ -99,7 +99,7 @@ export function HeroSection() {
               >
                 <ShinyLink
                   href="/services"
-                  label="View Our Services"
+                  label="View My Services"
                 >
                   <ArrowRight className="w-5 h-5 text-[#B873F8]" />
                 </ShinyLink>
@@ -114,7 +114,7 @@ export function HeroSection() {
                   href="/work"
                   className="inline-flex h-12 items-center justify-center rounded-lg border border-neutral-400 bg-background px-8 text-sm font-medium text-neutral-600 transition-colors hover:bg-neutral-100 dark:text-neutral-300 dark:border-neutral-600 dark:hover:bg-neutral-800"
                 >
-                  See Our Work
+                  See My Work
                 </Link>
               </motion.div>
             </motion.div>
